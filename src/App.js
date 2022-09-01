@@ -12,6 +12,7 @@ function App() {
   const dispatch = useDispatch();
   const { cartItems, isLoading } = useSelector((store) => store.cart);
   const { isOpen } = useSelector((store) => store.modal);
+  const { checkoutIsOpen } = useSelector((store) => store.checkout);
   useEffect(() => {
     dispatch(calculate());
   }, [cartItems]);
@@ -27,7 +28,7 @@ function App() {
   return (
     <>
       {isOpen && <Modal />}
-      {/* {checkoutIsOpen && <Checkout />} */}
+      {checkoutIsOpen && <Checkout />}
       <Navbar />
       <CartContainer />
     </>

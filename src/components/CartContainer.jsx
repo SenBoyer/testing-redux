@@ -2,6 +2,7 @@ import React from "react";
 import CartItem from "./CartItem";
 import { useSelector, useDispatch } from "react-redux";
 import { openModal } from "../features/modalSlice";
+import { openCheckout } from "../features/checkoutSlice";
 
 const CartContainer = () => {
   const { cartItems, total, amount } = useSelector((store) => store.cart);
@@ -42,6 +43,14 @@ const CartContainer = () => {
           }}
         >
           clear cart
+        </button>
+        <button
+          className="btn clear-btn"
+          onClick={() => {
+            dispatch(openCheckout());
+          }}
+        >
+          Checkout
         </button>
       </footer>
     </section>

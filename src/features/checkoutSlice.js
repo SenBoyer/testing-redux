@@ -27,7 +27,12 @@ const checkoutSlice = createSlice({
       console.log(state);
     },
     openCheckout: (state) => {
-      state.checkoutIsOpen = true;
+      console.log("checkout running");
+      if (state.checkoutIsOpen) {
+        state.checkoutIsOpen = false;
+      } else {
+        state.checkoutIsOpen = true;
+      }
     },
   },
 });

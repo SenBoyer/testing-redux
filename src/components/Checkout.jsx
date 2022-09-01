@@ -1,9 +1,10 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { addToCheckout } from "../features/checkoutSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { openCheckout } from "../features/checkoutSlice";
 
 const Checkout = () => {
   const dispatch = useDispatch();
+  const { cartItems } = useSelector((store) => store.cart);
 
   return (
     <>
@@ -11,15 +12,18 @@ const Checkout = () => {
         <div className="modal-container">
           <div className="modal">
             <h4>Items to purchase:</h4>
+            <div className="items-list">
+              {cartItems.map((el) => {
+                console.log("el=", el);
+              })}
+            </div>
             <button
               onClick={() => {
-                dispatch(addToCheckout());
+                dispatch(openCheckout());
               }}
             >
-              Click State
+              CLOSE
             </button>
-            <div className="items-list"></div>
-            {["harry", "potter", "ron", "weasley"].map((item) => item)}
           </div>
         </div>
       </aside>
