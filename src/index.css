@@ -4,6 +4,15 @@ Variables
 ===============
 */
 
+.selection-image {
+  display:flex;
+  justify-content: center;
+}
+.selection-image img {
+  width: 5rem;
+  height: 5rem;
+}
+
 :root {
   --clr-primary: #645cff;
   --clr-primary-dark: #282566;

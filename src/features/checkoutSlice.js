@@ -15,7 +15,6 @@ export const fillCheckout = createAsyncThunk(
 );
 
 const initialState = {
-  purchasedItems: [],
   checkoutIsOpen: false,
 };
 

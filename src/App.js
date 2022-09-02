@@ -6,7 +6,8 @@ import { calculate, getItems } from "./features/cartSlice";
 import Modal from "./components/Modal";
 import { useDispatch, useSelector } from "react-redux";
 import Checkout from "./components/Checkout";
-import checkoutIsOpen from "./features/checkoutSlice";
+import Selections from "./components/Selections";
+import { getSelectItems } from "./features/selectionSlice";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getItems());
+    dispatch(getSelectItems());
   }, []);
 
   if (isLoading) {
@@ -30,6 +32,7 @@ function App() {
       {isOpen && <Modal />}
       {checkoutIsOpen && <Checkout />}
       <Navbar />
+      <Selections />
       <CartContainer />
     </>
   );

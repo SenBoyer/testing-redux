@@ -14,7 +14,7 @@ const Checkout = () => {
             <h4>Items to purchase:</h4>
             <div className="items-list">
               {cartItems.map((el) => {
-                console.log("el=", el);
+                return <li>{el.title}</li>;
               })}
             </div>
             <button
